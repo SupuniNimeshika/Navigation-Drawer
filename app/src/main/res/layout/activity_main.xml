@@ -20,5 +20,17 @@
         </FrameLayout>
     </LinearLayout>
 
+    <ExpandableListView
+        android:id="@+id/navList"
+        android:layout_gravity="left|start"
+        android:layout_width="235dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:divider="@color/dividerColor"
+        android:dividerHeight="0.5dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredChildIndicatorLeft">
+
+    </ExpandableListView>
+
     
 </android.support.v4.widget.DrawerLayout>
