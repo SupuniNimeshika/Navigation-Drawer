@@ -7,15 +7,18 @@
     tools:context="com.example.supuni.navigationdrawer.MainActivity">
 
     <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/activity_controller"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <FrameLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Supuni Nimeshika"
-            android:textSize="24sp"/>
+            android:layout_height="match_parent">
+
+        </FrameLayout>
     </LinearLayout>
 
-
+    
 </android.support.v4.widget.DrawerLayout>
