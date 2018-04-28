@@ -78,12 +78,19 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
-        return null;
+    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        String title =(String)getChild(groupPosition,childPosition);
+        if(convertView ==null)
+        {
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_item,null);
+        }
+        TextView txtChild =(TextView)convertView.findViewById(R.id.expandableListItem);
+        txtChild.setText(title);
+        return convertView;
     }
 
     @Override
-    public boolean isChildSelectable(int i, int i1) {
-        return false;
+    public boolean isChildSelectable(int groupPosition, int childPosition) {
+        return true;
     }
 }
