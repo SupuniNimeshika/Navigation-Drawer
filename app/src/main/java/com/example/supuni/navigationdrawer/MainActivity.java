@@ -2,6 +2,9 @@ package com.example.supuni.navigationdrawer;
 
 import android.app.ExpandableListActivity;
 import android.app.FragmentManager;
+import android.content.res.Configuration;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -64,6 +67,18 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("EDMTDev");
+    }
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     private void selectFirstItemDefault() {
@@ -164,6 +179,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id =item.getItemId();
+
+        if(mDrawerToggle.onOptionsItemSelected(item))
+            return true;
+
         return super.onOptionsItemSelected(item);
     }
 }
